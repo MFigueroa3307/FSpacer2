@@ -1,0 +1,23 @@
+﻿@model IEnumerable<FSpacer.Models.SpacerCard>
+
+@{
+    ViewData["Title"] = "SearchResults";
+}
+
+<h2>Searc hResults</h2>
+
+@if (Model.Count() == 0)
+{
+    <p>No Drive Numbers matching those terms were found!</p>
+}
+else
+{
+    <p>The following Drive Numbers were found:</p>
+    <ul>
+        @foreach (var s in Model)
+        {
+            <li>@s.DriveNumber</li>
+            <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+        }
+    </ul>
+}
